@@ -1,0 +1,56 @@
+body {
+    background-color: black;
+    color: white;
+}
+
+footer {
+    height: 40px;
+    border: 1px grey solid;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+footer > input {
+    width: 80%;
+    height: 100%;
+    background-color: black;
+    color: green;
+    font-size: 17px;
+}
+
+footer > button {
+    width: 19%;
+    height: 100%;
+}
+
+
+#main { 
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 40;
+}
+
+#outputScreen    {
+    width: 50%;
+    height: 100%;
+    float: left;
+}
+
+#variableScreen  {
+    width: 50%;
+    height: 100%;
+    background: black;
+    margin-left: 200px;
+    color: white;
+}
+
+#outputScreen > textarea {
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    color: white;
+}
