@@ -143,6 +143,20 @@ $( document ).ready(function() {
             out.val(function(i, old) { return old+"\r\nError, variable does not exist" })
         }
     }
+    fnSetfg = function(inputArray) {
+        if(inputArray[1]) {
+            out.css('color', inputArray[1]); 
+        } else {
+            out.css('color', $("#colorTool").val());
+        }
+    }
+    fnSetbg = function(inputArray) {
+        if(inputArray[1]) {
+            out.css('background-color', inputArray[1]);
+        } else {
+            out.css('background-color', $("#colorTool").val());
+        }
+    }
     fnHelp = function(inputArray) {
         let string = "\r\n\r\n-- HELP --\r\n";
         commands.forEach(el => {
@@ -181,6 +195,16 @@ $( document ).ready(function() {
             desc: "remove variable"
         },
         {
+            cmd: "SETBG",
+            fn: fnSetbg,
+            desc: "set background color"
+        },
+        {
+            cmd: "SETFG",
+            fn: fnSetfg,
+            desc: "set foreground color"
+        },
+        {
             cmd: "?",
             fn: fnHelp,
             desc: "help"
@@ -197,6 +221,7 @@ $( document ).ready(function() {
         let inputString = input.val();
         input.val("");
 
+        // Sostituisce $var_name$ con il valore della variabile se esiste, altrimenti NULL
         let matches = inputString.match(/\$\S+\$/g);
         console.log(matches);
         if(matches) {
@@ -205,9 +230,9 @@ $( document ).ready(function() {
                 let variableValue = getVariable(variableName)?getVariable(variableName).value :"NULL";
                 
                 inputString = inputString.replace(matches[i], variableValue );
-                console.log(inputString);
             }
         }
+        //
 
         let inputArray = inputString.split(" ");
         let executed = false;

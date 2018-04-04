@@ -42,7 +42,15 @@ footer > button {
 
 #variableScreen  {
     width: 50%;
-    height: 100%;
+    height: 50%;
+    background: black;
+    margin-left: 200px;
+    color: white;
+}
+
+#toolScreen {
+    width: 50%;
+    height: 50%;
     background: black;
     margin-left: 200px;
     color: white;
